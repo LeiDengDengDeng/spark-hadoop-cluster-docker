@@ -1,27 +1,22 @@
-## Run Hadoop Cluster within Docker Containers
-
-- Blog: [Run Hadoop Cluster in Docker Update](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
-- 博客: [基于Docker搭建Hadoop集群之升级版](http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/)
+## Run Spark&Hadoop Cluster within Docker Containers
 
 
-![alt tag](https://raw.githubusercontent.com/kiwenlau/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
+### 3 Nodes Spark&Hadoop Cluster
 
-
-### 3 Nodes Hadoop Cluster
-
-##### 1. pull docker image
+##### 1. clone github repository
 
 ```
-sudo docker pull kiwenlau/hadoop:1.0
+git clone https://github.com/LeiDengDengDeng/spark-hadoop-cluster-docker.git
 ```
 
-##### 2. clone github repository
+##### 2. build docker image
 
 ```
-git clone https://github.com/kiwenlau/hadoop-cluster-docker
+cd spark-hadoop-cluster-docker
+sudo ./build-img.sh
 ```
 
-##### 3. create hadoop network
+##### 3. create network
 
 ```
 sudo docker network create --driver=bridge hadoop
@@ -30,7 +25,6 @@ sudo docker network create --driver=bridge hadoop
 ##### 4. start container
 
 ```
-cd hadoop-cluster-docker
 sudo ./start-container.sh
 ```
 
@@ -45,7 +39,7 @@ root@hadoop-master:~#
 - start 3 containers with 1 master and 2 slaves
 - you will get into the /root directory of hadoop-master container
 
-##### 5. start hadoop
+##### 5. start hadoop&spark
 
 ```
 ./start-hadoop.sh
@@ -72,29 +66,15 @@ Hadoop    1
 Hello    2
 ```
 
-### Arbitrary size Hadoop cluster
-
-##### 1. pull docker images and clone github repository
-
-do 1~3 like section A
-
-##### 2. rebuild docker image
+##### 7. run spark
 
 ```
-sudo ./resize-cluster.sh 5
+spark-shell
+> val file=sc.textFile("hdfs://hadoop:master:9000/input/file1.txt")
+> val rdd = file.flatMap(line => line.split(" ")).map(word => (word,1)).reduceByKey(_+_)
+> rdd.collect()
+> rdd.foreach(println)
 ```
-- specify parameter > 1: 2, 3..
-- this script just rebuild hadoop image with different **slaves** file, which pecifies the name of all slave nodes
 
 
-##### 3. start container
-
-```
-sudo ./start-container.sh 5
-```
-- use the same parameter as the step 2
-
-##### 4. run hadoop cluster 
-
-do 5~6 like section A
 

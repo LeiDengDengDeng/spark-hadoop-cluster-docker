@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <configuration>
     <property>
+      <name>dfs.namenode.secondary.http-address</name>
+      <value>hadoop-master:50090</value>
+    </property>
+    <property>
         <name>dfs.namenode.name.dir</name>
         <value>file:///root/hdfs/namenode</value>
         <description>NameNode directory for namespace and transaction logs storage.</description>
