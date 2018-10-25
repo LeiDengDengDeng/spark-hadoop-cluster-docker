@@ -6,6 +6,7 @@
 
 ```
 git clone https://github.com/LeiDengDengDeng/spark-hadoop-cluster-docker.git
+cd spark-hadoop-cluster-docker
 ```
 
 ##### 2.get docker image(u can choose any one)
@@ -13,7 +14,6 @@ git clone https://github.com/LeiDengDengDeng/spark-hadoop-cluster-docker.git
 ###### way 1: build it by yourself (it's (emmm very) slow but u can know the process of building image if u are interested in it)
 
 ```
-cd spark-hadoop-cluster-docker
 sudo ./build-image.sh
 ```
 
