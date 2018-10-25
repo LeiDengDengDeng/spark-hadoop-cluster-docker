@@ -77,10 +77,22 @@ Hello    2
 
 ```
 spark-shell
-> val file=sc.textFile("hdfs://hadoop:master:9000/input/file1.txt")
-> val rdd = file.flatMap(line => line.split(" ")).map(word => (word,1)).reduceByKey(_+_)
-> rdd.collect()
-> rdd.foreach(println)
+```
+
+Now u have launched spark shell, then input following code(in scala) in spark shell:
+
+```scala
+val file=sc.textFile("hdfs://hadoop-master:9000/input/file1.txt")
+val rdd = file.flatMap(line => line.split(" ")).map(word => (word,1)).reduceByKey(_+_)
+rdd.collect()
+rdd.foreach(println)
+```
+
+**output**
+
+```
+(Hello,1)
+(Hadoop,1)
 ```
 
 ##### 8. website
