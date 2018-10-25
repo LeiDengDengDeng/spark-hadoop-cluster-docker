@@ -8,7 +8,7 @@
         <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
         <value>org.apache.hadoop.mapred.ShuffleHandler</value>
     </property>
-<!--     <property>
+    <property>
         <name>yarn.resourcemanager.hostname</name>
         <value>hadoop-master</value>
     </property>
@@ -31,5 +31,5 @@
     <property>
         <name>yarn.resourcemanager.webapp.address</name>
         <value>hadoop-master:8088</value>
-    </property> -->
+    </property>
 </configuration>
