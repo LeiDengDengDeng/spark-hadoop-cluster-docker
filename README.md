@@ -76,5 +76,10 @@ spark-shell
 > rdd.foreach(println)
 ```
 
-
+##### 8. website
+```
+localhost:8080
+localhost:8088
+localhost:50070
+```
 
