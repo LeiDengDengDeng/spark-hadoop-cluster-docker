@@ -13,7 +13,7 @@ git clone https://github.com/LeiDengDengDeng/spark-hadoop-cluster-docker.git
 
 ```
 cd spark-hadoop-cluster-docker
-sudo ./build-img.sh
+sudo ./build-image.sh
 ```
 
 ##### 3. create network
