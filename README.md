@@ -14,7 +14,7 @@ git clone https://github.com/LeiDengDengDeng/spark-hadoop-cluster-docker.git
 
 ```
 cd spark-hadoop-cluster-docker
-sudo ./build-img.sh
+sudo ./build-image.sh
 ```
 
 ###### way 2: pull image(fast and stable)
@@ -83,5 +83,10 @@ spark-shell
 > rdd.foreach(println)
 ```
 
-
+##### 8. website
+```
+localhost:8080
+localhost:8088
+localhost:50070
+```
 
