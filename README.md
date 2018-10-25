@@ -1,6 +1,5 @@
 ## Run Spark&Hadoop Cluster within Docker Containers
 
-
 ### 3 Nodes Spark&Hadoop Cluster
 
 ##### 1. clone github repository
@@ -9,11 +8,19 @@
 git clone https://github.com/LeiDengDengDeng/spark-hadoop-cluster-docker.git
 ```
 
-##### 2. build docker image
+##### 2.get docker image(u can choose any one)
+
+###### way 1: build it by yourself (it's (emmm very) slow but u can know the process of building image if u are interested in it)
 
 ```
 cd spark-hadoop-cluster-docker
 sudo ./build-img.sh
+```
+
+###### way 2: pull image(fast and stable)
+
+```
+sudo docker pull dengdenglei/spark-hadoop:1.0
 ```
 
 ##### 3. create network

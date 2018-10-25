@@ -14,7 +14,7 @@ sudo docker run -itd \
                 -p 8080:8080 \
                 --name hadoop-master \
                 --hostname hadoop-master \
-                deng/hadoop:1.0 &> /dev/null
+                dengdenglei/spark-hadoop:1.0 &> /dev/null
 
 
 # start hadoop slave container
@@ -27,7 +27,7 @@ do
 	                --net=hadoop \
 	                --name hadoop-slave$i \
 	                --hostname hadoop-slave$i \
-	                deng/hadoop:1.0 &> /dev/null
+	                dengdenglei/spark-hadoop:1.0 &> /dev/null
 	i=$(( $i + 1 ))
 done 
 
